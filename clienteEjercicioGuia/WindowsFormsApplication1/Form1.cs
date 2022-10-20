@@ -82,45 +82,10 @@ namespace WindowsFormsApplication1
                 if (mensaje == "SI")
                     MessageBox.Show("Tu nombre ES bonito.");
                 else
-                    MessageBox.Show("Tu nombre NO bonito. Lo siento.");
+                    MessageBox.Show("Tu nombre NO es bonito. Lo siento.");
 
             }
-            else if (palindromo.Checked)
-            {
-                string mensaje = "4/" + nombre.Text;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
-
-                if (mensaje == "SI")
-                    MessageBox.Show("Tu nombre ES palíndromo.");
-                else
-                    MessageBox.Show("Tu nombre NO es palíndromo.");
-
-            }
-            else if (mayu.Checked)
-            {
-                string mensaje = "5/" + nombre.Text;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-             
-                MessageBox.Show("Tu nombre en mayusculas es: "+mensaje);
-
-            }
-
-            else 
+            else
             {
                 // Enviamos nombre y altura
                 string mensaje = "3/" + nombre.Text + "/" + alturaBox.Text;
@@ -154,34 +119,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (CtoF.Checked)
-            {
-                string mensaje = "6/" + Tempbox.Text;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-                MessageBox.Show("La temperatura en fahrenheit es: " + mensaje);
-            }
-            else if (FtoC.Checked)
-            {
-                string mensaje = "7/" + Tempbox.Text;
-                // Enviamos al servidor el nombre tecleado
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-                server.Send(msg);
-
-                //Recibimos la respuesta del servidor
-                byte[] msg2 = new byte[80];
-                server.Receive(msg2);
-                mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-                MessageBox.Show("La temperatura en celsius es: " + mensaje);
-            }
-        }
+     
     }
 }
