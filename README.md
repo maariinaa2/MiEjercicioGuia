@@ -2,3 +2,5 @@
 
     VersionConConexionDesconexion
     VersionConcurrente
+    VersionConExclusionMutua
+
